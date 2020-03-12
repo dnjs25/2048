@@ -5,25 +5,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>2048</title>
   <style>
+    body {
+      max-width: 480px;
+    }
     #table {
-      border-collapse: collapse;
+      /* border-collapse: collapse; */
+      border-collapse: separate;
+      border-spacing: 5px;
       user-select: none;
+      border: 2px solid #9c7373;
+      border-radius: 5px;
+      background: #9c7373;
     }
     #table td {
-      border: 1px solid black;
+      border: 1px solid #9c7373;
+      border-radius: 5px;
+      background: #e5a5a5;
       width: 100px;
       height: 100px;
       font-size: 30px;
       font-weight: bold;
       text-align: center;
     }
+    #head {
+      width: 400px;
+    }
+    h1 {
+      font-size: 50px;
+      color: #412828;
+    }
+    #score-board {
+      margin-left: 200px;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .score, .best-score {
+      border: 1px solid #9c7373;
+      background: #9c7373;
+      color: #d6d8db;
+      border-radius: 10px;
+      margin-bottom: 3%;
+      text-align: center;
+    }
+
+    #score, #best-score {
+      color: #fff;
+    }
   </style>
 </head>
 <body>
-  <table id="table">
-
-  </table>
-  <div id="score">0</div>
+  <div id="head">
+    <div id="title"><h1>2048</h1></div>
+    <!-- <div id="score">0</div> -->
+    <div id="score-board">
+      <div class="score">score: <span id="score">0</span></div>
+      <div class="best-score">best score: <span id="best-score">0</span></div>
+    </div>
+  </div>
+  <table id="table"></table>
+  <!-- <div id="score">0</div> -->
   <script src="2048.js"></script>
 </body>
 </html>
