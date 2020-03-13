@@ -17,11 +17,9 @@ function init(re) {
     fragment.appendChild(tr);
   });
   table.appendChild(fragment);
-  console.log(fragment);
   if (re === true) {
     random();
     draw();
-    score.textContent = '0';
   }
 }
 
@@ -35,9 +33,9 @@ function random() {
     });
   });
   if (emptyArr.length === 0) {
-    modifiedScore();
-    data = [];
     alert('게임오버: ' + score.textContent);
+    bestScoreCheck();
+    data = [];
     table.innerHTML = '';
     init(true);
   } else {
@@ -63,14 +61,11 @@ init();
 random();
 draw();
 
-function modifiedScore() {
-  console.log(score, bestScore);
-  console.log(score.textContent > bestScore.textContent);
-  if (score.textContent > bestScore.textContent) {
-    console.log('if~');
+function bestScoreCheck() {
+  if (Number(score.textContent) > Number(bestScore.textContent)) {
     bestScore.textContent = score.textContent;
   }
-  console.log(score, bestScore);
+  score.textContent = '0';
 }
 
 var dragStart = false;
@@ -135,7 +130,6 @@ window.addEventListener('mouseup', function (event) {
               newData[i].push(rowData);
             }
           }
-          console.log(score);
         });
       });
       [1, 2, 3, 4].forEach(function (colData, i) {
@@ -157,7 +151,6 @@ window.addEventListener('mouseup', function (event) {
               newData[i].unshift(rowData);
             }
           }
-          console.log(score);
         });
       });
       [1, 2, 3, 4].forEach(function (colData, i) {
@@ -179,7 +172,6 @@ window.addEventListener('mouseup', function (event) {
               newData[j].push(rowData);
             }
           }
-          console.log(score);
         });
       });
 
@@ -202,7 +194,6 @@ window.addEventListener('mouseup', function (event) {
               newData[j].unshift(rowData);
             }
           }
-          console.log(score);
         });
       });
       [1, 2, 3, 4].forEach(function (rowData, i) {
